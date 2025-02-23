@@ -149,3 +149,37 @@ def serve_article_image(request, article_id):
         )
     except Article.DoesNotExist:
         return HttpResponse(status=404)
+
+
+class ArticleDetail(generics.RetrieveAPIView):
+    serializer_class = ArticleSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Article.objects.all()
+
+
+class ArticleUpdate(generics.UpdateAPIView):
+    serializer_class = ArticleSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Article.objects.all()
+
+    def update(self, request, *args, **kwargs):
+        partial = True  # Allow partial updates
+        instance = self.get_object()
+
+        # Only allow updating headline and body
+        update_data = {
+            "headline": request.data.get("headline", instance.headline),
+            "body": request.data.get("body", instance.body),
+        }
+
+        serializer = self.get_serializer(instance, data=update_data, partial=partial)
+
+        if serializer.is_valid():
+            self.perform_update(serializer)
+            return Response(serializer.data)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

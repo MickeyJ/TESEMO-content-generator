@@ -7,6 +7,7 @@ class Author(models.Model):
     last_name = models.CharField(max_length=30)
     image_url = models.CharField(max_length=300, default="")
     prompt = models.TextField()
+    image_style = models.TextField()
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 

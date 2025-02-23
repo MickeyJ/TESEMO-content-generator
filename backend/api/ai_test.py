@@ -101,7 +101,7 @@ def generate_article_for_author(author_id: int) -> dict:
         # Use the author's saved prompt
         system_prompt = (
             f"{author.prompt}\n\n"
-            "Generate an article in the following format:\n"
+            "Generate an article, 150 to 200 words, in the following format:\n"
             "HEADLINE: <the headline>\n"
             "BODY: <the article body>"
         )
@@ -116,6 +116,9 @@ def generate_article_for_author(author_id: int) -> dict:
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": "Generate a new article"},
             ],
+            temperature=1.5,  # Increase for more diverse responses
+            top_p=1.0,  # Adjust to control diversity
+            max_tokens=150,
         )
 
         # Extract the article content
@@ -134,18 +137,7 @@ def generate_article_for_author(author_id: int) -> dict:
         # Generate an image for the article
         image_response = client.images.generate(
             model="dall-e-3",
-            prompt=f"""Create a minimalist, simple illustration for this headline: {headline}
-
-            Style guidelines:
-            - Use a minimal color palette (5-10 colors maximum)
-            - Plenty of negative space
-            - Avoid complex details or textures
-            - Simple, iconic representation
-            - Modern, flat design aesthetic
-            - No text or typography
-            - Single focal point
-
-            The image should be elegant and professional and classy.""",
+            prompt=f"""Create a minimalist, simple illustration for this headline: {headline}. {author.image_style}""",
             size="1024x1024",
             quality="standard",
             n=1,

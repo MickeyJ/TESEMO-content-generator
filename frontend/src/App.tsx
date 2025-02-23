@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Authors from './pages/Authors';
 import NotFound from './pages/NotFound';
 import ProtectedRoute from './components/ProtectedRoute';
+import ArticlePage from './pages/ArticlePage';
 
 function Logout() {
 	localStorage.clear();
@@ -40,6 +41,14 @@ function App() {
 				<Route path="/login" element={<Login />} />
 				<Route path="/logout" element={<Logout />} />
 				<Route path="/register" element={<RegisterAndLogout />} />
+				<Route
+					path="/articles/:id"
+					element={
+						<ProtectedRoute>
+							<ArticlePage />
+						</ProtectedRoute>
+					}
+				/>
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</BrowserRouter>

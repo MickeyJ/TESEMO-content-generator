@@ -22,4 +22,14 @@ urlpatterns = [
         views.serve_article_image,
         name="article_image",
     ),
+    path(
+        "articles/<int:pk>/",
+        views.ArticleDetail.as_view(),
+        name="article-detail",
+    ),
+    path(
+        "articles/update/<int:pk>/",
+        views.ArticleUpdate.as_view(),
+        name="article-update",
+    ),
 ]

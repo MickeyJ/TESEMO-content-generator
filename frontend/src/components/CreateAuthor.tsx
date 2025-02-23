@@ -9,6 +9,7 @@ interface AuthorFormData {
 	last_name: string;
 	prompt: string;
 	image_url: string;
+	image_style: string;
 	submit?: string;
 }
 
@@ -21,7 +22,8 @@ const CreateAuthor: React.FC<CreateAuthorProps> = ({ onAuthorCreated }) => {
 		first_name: '',
 		last_name: '',
 		prompt: '',
-		image_url: ''
+		image_url: '',
+		image_style: ''
 	});
 	const [errors, setErrors] = useState<Partial<AuthorFormData>>({});
 	const [loading, setLoading] = useState(false);
@@ -62,7 +64,8 @@ const CreateAuthor: React.FC<CreateAuthorProps> = ({ onAuthorCreated }) => {
 					first_name: '',
 					last_name: '',
 					prompt: '',
-					image_url: ''
+					image_url: '',
+					image_style: ''
 				});
 				onAuthorCreated();
 			} else {
@@ -113,13 +116,24 @@ const CreateAuthor: React.FC<CreateAuthorProps> = ({ onAuthorCreated }) => {
 				/>
 
 				<FormField
-					label="Prompt"
+					label="Article Prompt"
 					name="prompt"
 					type="textarea"
 					value={formData.prompt}
 					onChange={handleChange}
 					error={errors.prompt}
 					placeholder="Enter prompt details"
+					required
+				/>
+
+				<FormField
+					label="Article Image Style"
+					name="image_style"
+					type="textarea"
+					value={formData.image_style}
+					onChange={handleChange}
+					error={errors.image_style}
+					placeholder="Enter Article image style details"
 					required
 				/>
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { AuthorType } from './Author';
 import api from '../api'; // Import your api config
+import { Link } from 'react-router-dom';
 
 export interface ArticleType {
 	id: number;
@@ -14,10 +15,9 @@ export interface ArticleType {
 
 interface ArticleProps {
 	article: ArticleType;
-	onDelete: (id: number) => void;
 }
 
-const Article: React.FC<ArticleProps> = ({ article, onDelete }) => {
+const Article: React.FC<ArticleProps> = ({ article }) => {
 	const formattedDate = new Date(article.created_at).toLocaleDateString(
 		'en-US',
 		{
@@ -27,34 +27,30 @@ const Article: React.FC<ArticleProps> = ({ article, onDelete }) => {
 		}
 	);
 
+	// Truncate body text to 150 characters
+	const truncatedBody =
+		article.body.length > 150
+			? `${article.body.substring(0, 150)}...`
+			: article.body;
+
 	return (
-		<article className="card">
-			<header className="article-header">
+		<article className="bg-white rounded-lg shadow-md overflow-hidden h-full flex flex-col">
+			<Link to={`/articles/${article.id}`} className="flex-1">
 				<img
 					src={`${api.defaults.baseURL}${article.image_url}`}
 					alt={article.headline}
-					className=""
+					className="w-full aspect-square object-cover"
 				/>
-				<h3 className="article-headline">{article.headline}</h3>
-			</header>
-			<section className="article-content">
-				<p className="article-body">{article.body}</p>
-			</section>
-			<footer className="flex flex-col items-center">
-				<p className="article-created-by">Created by: {article.created_by}</p>
-				<p className="article-author">
-					Author:{' '}
-					{article.author &&
-						`${article.author.first_name} ${article.author.last_name}`}
-				</p>
-				<p className="article-date">{formattedDate}</p>
-				<button
-					className="btn-warn"
-					onClick={() => onDelete(article.id)}
-					type="button">
-					Delete
-				</button>
-			</footer>
+				<div className="p-4">
+					<h2 className="text-xl font-bold mb-2 line-clamp-2">
+						{article.headline}
+					</h2>
+					<p className="text-gray-600 mb-4 line-clamp-3">{truncatedBody}</p>
+					<span className="text-primary hover:text-accent transition-colors duration-300">
+						Continue reading →
+					</span>
+				</div>
+			</Link>
 		</article>
 	);
 };

@@ -19,21 +19,12 @@ const Home: React.FC = () => {
 		fetchArticles();
 	}, []);
 
-	const handleDelete = async (id: number) => {
-		try {
-			await api.delete(`/api/articles/delete/${id}/`);
-			setArticles(articles.filter((article) => Number(article.id) !== id));
-		} catch (error) {
-			console.error('Failed to delete article:', error);
-		}
-	};
-
 	return (
-		<div className="home">
+		<div className="container mx-auto px-4">
 			<CreateArticle onArticleCreated={fetchArticles} />
-			<div className="flex flex-col items-center">
+			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
 				{articles.map((article) => (
-					<Article key={article.id} article={article} onDelete={handleDelete} />
+					<Article key={article.id} article={article} />
 				))}
 			</div>
 		</div>
