@@ -136,9 +136,9 @@ const CreateArticle: React.FC<CreateArticleProps> = ({ onArticleCreated }) => {
 	};
 
 	return (
-		<section className="form-container create-article-section">
+		<section className="flex flex-col items-center">
 			<h2 className="form-title">Create Article</h2>
-			<form className="form" onSubmit={handleSubmit}>
+			<form className="form flex flex-col" onSubmit={handleSubmit}>
 				<FormField
 					label="Created By"
 					name="created_by"
@@ -153,17 +153,6 @@ const CreateArticle: React.FC<CreateArticleProps> = ({ onArticleCreated }) => {
 						label: `${author.first_name} ${author.last_name}`
 					}))}
 				/>
-
-				<button
-					type="button"
-					className="form-submit"
-					onClick={(e) => {
-						console.log('Button clicked');
-						handleGenerate(e);
-					}}
-					disabled={generating || !formData.created_by}>
-					{generating ? 'Generating...' : 'Generate Article'}
-				</button>
 
 				<FormField
 					label="Headline"
@@ -196,11 +185,24 @@ const CreateArticle: React.FC<CreateArticleProps> = ({ onArticleCreated }) => {
 					required
 				/>
 
-				{errors.submit && <p className="form-error">{errors.submit}</p>}
+				{errors.submit && <p className="text-red">{errors.submit}</p>}
 
-				<button type="submit" className="form-submit" disabled={loading}>
-					{loading ? 'Creating...' : 'Create Article'}
-				</button>
+				<div className="flex flex-col items-center">
+					<button type="submit" className="btn1 mt-1" disabled={loading}>
+						{loading ? 'Creating...' : 'Create Article'}
+					</button>
+
+					<button
+						type="button"
+						className="btn2 mt-1"
+						onClick={(e) => {
+							console.log('Button clicked');
+							handleGenerate(e);
+						}}
+						disabled={generating || !formData.created_by}>
+						{generating ? 'Generating...' : 'Generate Article'}
+					</button>
+				</div>
 			</form>
 		</section>
 	);

@@ -1,0 +1,172 @@
+[
+	{
+		"name": "Harbor Rotation 1",
+		"light": {
+			"primary": "#1A1A1A",
+			"secondary": "#0F3B8D",
+			"background": "#FDFDFD",
+			"accent": "#91EE6C",
+			"error": "#EF5350"
+		},
+		"dark": {
+			"primary": "#FDFDFD",
+			"secondary": "#0F3B8D",
+			"background": "#2A2A2A",
+			"accent": "#91EE6C",
+			"error": "#EF5350"
+		}
+	},
+	{
+		"name": "Harbor Rotation 2",
+		"light": {
+			"primary": "#1A1A1A",
+			"secondary": "#2A3A91",
+			"background": "#FDFDFD",
+			"accent": "#A8F06C",
+			"error": "#EF5350"
+		},
+		"dark": {
+			"primary": "#FDFDFD",
+			"secondary": "#2A3A91",
+			"background": "#2A2A2A",
+			"accent": "#A8F06C",
+			"error": "#EF5350"
+		}
+	},
+	{
+		"name": "Harbor Rotation 3",
+		"light": {
+			"primary": "#1A1A1A",
+			"secondary": "#7B1A65",
+			"background": "#FDFDFD",
+			"accent": "#68EAA0",
+			"error": "#EF5350"
+		},
+		"dark": {
+			"primary": "#FDFDFD",
+			"secondary": "#7B1A65",
+			"background": "#2A2A2A",
+			"accent": "#68EAA0",
+			"error": "#EF5350"
+		}
+	},
+	{
+		"name": "Harbor Rotation 4",
+		"light": {
+			"primary": "#1A1A1A",
+			"secondary": "#A10F30",
+			"background": "#FDFDFD",
+			"accent": "#70E2F0",
+			"error": "#EF5350"
+		},
+		"dark": {
+			"primary": "#FDFDFD",
+			"secondary": "#A10F30",
+			"background": "#2A2A2A",
+			"accent": "#70E2F0",
+			"error": "#EF5350"
+		}
+	},
+	{
+		"name": "Harbor Rotation 5",
+		"light": {
+			"primary": "#1A1A1A",
+			"secondary": "#7F1A0E",
+			"background": "#FDFDFD",
+			"accent": "#70E2EF",
+			"error": "#EF5350"
+		},
+		"dark": {
+			"primary": "#FDFDFD",
+			"secondary": "#7F1A0E",
+			"background": "#2A2A2A",
+			"accent": "#70E2EF",
+			"error": "#EF5350"
+		}
+	},
+	{
+		"name": "Harbor Rotation 6",
+		"light": {
+			"primary": "#1A1A1A",
+			"secondary": "#8A4B12",
+			"background": "#FDFDFD",
+			"accent": "#6E70E2",
+			"error": "#EF5350"
+		},
+		"dark": {
+			"primary": "#FDFDFD",
+			"secondary": "#8A4B12",
+			"background": "#2A2A2A",
+			"accent": "#6E70E2",
+			"error": "#EF5350"
+		}
+	},
+	{
+		"name": "Harbor Rotation 7",
+		"light": {
+			"primary": "#1A1A1A",
+			"secondary": "#7A8B12",
+			"background": "#FDFDFD",
+			"accent": "#AF70E2",
+			"error": "#EF5350"
+		},
+		"dark": {
+			"primary": "#FDFDFD",
+			"secondary": "#7A8B12",
+			"background": "#2A2A2A",
+			"accent": "#AF70E2",
+			"error": "#EF5350"
+		}
+	},
+	{
+		"name": "Harbor Rotation 8",
+		"light": {
+			"primary": "#1A1A1A",
+			"secondary": "#127A42",
+			"background": "#FDFDFD",
+			"accent": "#E26EA0",
+			"error": "#EF5350"
+		},
+		"dark": {
+			"primary": "#FDFDFD",
+			"secondary": "#127A42",
+			"background": "#2A2A2A",
+			"accent": "#E26EA0",
+			"error": "#EF5350"
+		}
+	},
+	{
+		"name": "Harbor Rotation 9",
+		"light": {
+			"primary": "#1A1A1A",
+			"secondary": "#128F2A",
+			"background": "#FDFDFD",
+			"accent": "#F0D06E",
+			"error": "#EF5350"
+		},
+		"dark": {
+			"primary": "#FDFDFD",
+			"secondary": "#128F2A",
+			"background": "#2A2A2A",
+			"accent": "#F0D06E",
+			"error": "#EF5350"
+		}
+	},
+	{
+		"name": "Harbor Rotation 10",
+		"light": {
+			"primary": "#1A1A1A",
+			"secondary": "#127A75",
+			"background": "#FDFDFD",
+			"accent": "#F0C06E",
+			"error": "#EF5350"
+		},
+		"dark": {
+			"primary": "#FDFDFD",
+			"secondary": "#127A75",
+			"background": "#2A2A2A",
+			"accent": "#F0C06E",
+			"error": "#EF5350"
+		}
+	}
+]

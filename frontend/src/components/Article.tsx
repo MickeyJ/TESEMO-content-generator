@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/Article.scss';
 import { AuthorType } from './Author';
+import api from '../api'; // Import your api config
 
 export interface ArticleType {
 	id: number;
@@ -28,19 +28,19 @@ const Article: React.FC<ArticleProps> = ({ article, onDelete }) => {
 	);
 
 	return (
-		<article className="article">
+		<article className="card">
 			<header className="article-header">
 				<img
-					src={article.image_url}
+					src={`${api.defaults.baseURL}${article.image_url}`}
 					alt={article.headline}
-					className="article-image"
+					className=""
 				/>
 				<h3 className="article-headline">{article.headline}</h3>
 			</header>
 			<section className="article-content">
 				<p className="article-body">{article.body}</p>
 			</section>
-			<footer className="article-footer">
+			<footer className="flex flex-col items-center">
 				<p className="article-created-by">Created by: {article.created_by}</p>
 				<p className="article-author">
 					Author:{' '}
@@ -49,7 +49,7 @@ const Article: React.FC<ArticleProps> = ({ article, onDelete }) => {
 				</p>
 				<p className="article-date">{formattedDate}</p>
 				<button
-					className="delete-button"
+					className="btn-warn"
 					onClick={() => onDelete(article.id)}
 					type="button">
 					Delete

@@ -79,9 +79,9 @@ const CreateAuthor: React.FC<CreateAuthorProps> = ({ onAuthorCreated }) => {
 	};
 
 	return (
-		<section className="form-container create-author-section">
+		<section className="flex flex-col items-center">
 			<h2 className="form-title">Create Author</h2>
-			<form className="form" onSubmit={handleSubmit}>
+			<form className="form flex flex-col" onSubmit={handleSubmit}>
 				<FormField
 					label="First Name"
 					name="first_name"
@@ -125,9 +125,11 @@ const CreateAuthor: React.FC<CreateAuthorProps> = ({ onAuthorCreated }) => {
 
 				{errors.submit && <p className="form-error">{errors.submit}</p>}
 
-				<button type="submit" className="form-submit" disabled={loading}>
-					{loading ? 'Creating...' : 'Create Author'}
-				</button>
+				<div className="flex flex-col items-center">
+					<button type="submit" className="btn1" disabled={loading}>
+						{loading ? 'Creating...' : 'Create Author'}
+					</button>
+				</div>
 			</form>
 		</section>
 	);

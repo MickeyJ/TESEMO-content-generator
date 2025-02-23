@@ -1,239 +1,123 @@
-// Root Variables for Colors, Typography, and Transitions
-:root {
-	--primary-color: #192a3e;
-	--secondary-color: #424c55;
-	--neutral-color: #f4effc;
-	--accent-color: #fcb5ac;
-	--complementary-accent: #8cbfbf;
-	--text-light: #ffffff;
-	--text-dark: #192a3e;
-	--input-background-dark: #424c55;
-	--input-background-light: #ffffff;
-	--input-border-dark: #8cbfbf;
-	--input-border-light: #cccccc;
-	--error-color: #ff6f61;
+// frontend/src/styles/main.scss
 
-	--font-family: 'Roboto', sans-serif;
-	--border-radius: 4px;
-	--transition: 0.3s ease-in-out;
-}
+@use 'tailwindcss';
+@layer base {
+	// Base styles
+	@apply font-sans text-base;
 
-// General Reset and Body Styles
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
+	h1 {
+		@apply text-4xl font-bold; /* Tailwind utility classes */
+	}
 
-body {
-	font-family: var(--font-family);
-	background-color: var(--primary-color);
-	color: var(--neutral-color);
-	line-height: 1.6;
-	transition:
-		background-color var(--transition),
-		color var(--transition);
-}
+	h2 {
+		@apply text-3xl font-semibold;
+	}
 
-.container {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 1rem;
-}
-
-// Links
-a {
-	color: var(--accent-color);
-	text-decoration: none;
-	transition: color var(--transition);
-
-	&:hover {
-		color: var(--complementary-accent);
+	h3 {
+		@apply text-2xl font-medium;
 	}
 }
 
-// Headers
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-weight: bold;
-	margin-bottom: 1rem;
-	color: var(--accent-color);
-}
-
-// Buttons
-button {
-	position: relative;
-	z-index: 1;
-	pointer-events: auto;
-	padding: 0.75rem 1.5rem;
-	font-size: 1rem;
-	background-color: var(--accent-color);
-	color: var(--text-light);
-	border: none;
-	border-radius: var(--border-radius);
-	transition:
-		background-color var(--transition),
-		box-shadow var(--transition);
-
-	&:hover {
-		background-color: var(--complementary-accent);
-		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+@layer theme {
+	// Light theme colors
+	:root {
+		--color-primary: #124e78;
+		--color-secondary: #127a75;
+		--color-accent: #f0c06e;
+		--color-background: #fdfdfd;
+		--color-error: #ef5350;
+		--color-text: #111827;
+		--color-white: #fdfdfd;
 	}
 
-	&:disabled {
-		background-color: var(--secondary-color);
+	// Dark theme colors
+	[data-theme='dark'] {
+		--color-primary: #124e78;
+		--color-secondary: #127a75;
+		--color-accent: #f0c06e;
+		--color-background: #111827;
+		--color-error: #ef5350;
+		--color-text: #fdfdfd;
+		--color-white: #fdfdfd;
 	}
 }
 
-// Navigation
-nav {
-	display: flex;
-	gap: 1rem;
-	padding: 1rem;
-	background-color: var(--secondary-color);
-	color: var(--neutral-color);
-
-	a {
-		color: var(--neutral-color);
-
-		&:hover {
-			color: var(--accent-color);
-		}
-	}
-}
-
-// Lists
-ul,
-ol {
-	list-style: none;
-	padding-left: 1.5rem;
-
-	li {
-		margin-bottom: 0.5rem;
-	}
-}
-
-// Forms and Inputs
-.form {
-	display: flex;
-	flex-direction: column;
-	gap: 1.5rem;
-	background-color: var(--secondary-color);
-	padding: 1.5rem;
-	border-radius: var(--border-radius);
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
-	.form-group {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem; /* Space between input and error text */
-		margin-bottom: 1.5rem;
-
-		label {
-			font-size: 1rem;
-			color: var(--neutral-color);
-		}
-
-		input,
-		textarea,
-		select {
-			width: 100%;
-			padding: 0.75rem;
-			font-size: 1rem;
-			border: 1px solid var(--input-border-dark);
-			border-radius: var(--border-radius);
-			background-color: var(--input-background-dark);
-			color: var(--neutral-color);
-			transition:
-				border-color var(--transition),
-				box-shadow var(--transition);
-
-			&:focus {
-				border-color: var(--accent-color);
-				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-				outline: none;
-			}
-
-			&::placeholder {
-				color: var(--input-border-dark);
-				opacity: 0.8;
-			}
-		}
-
-		.form-error {
-			font-size: 0.9rem;
-			color: var(--error-color);
-			min-height: 1.2rem; /* Reserve space for error messages */
-			margin-top: 0.25rem;
-			display: flex;
-			align-items: center; /* Vertically aligns text when error appears */
-		}
-
-		.form-helper {
-			font-size: 0.9rem;
-			color: var(--complementary-accent);
-			margin-top: -0.5rem;
-		}
-
-		textarea {
-			resize: vertical;
-			min-height: 150px;
-		}
-	}
-
-	.form-submit {
-		position: relative;
-		z-index: 1;
-		padding: 0.75rem 1.5rem;
-		font-size: 1rem;
-		background-color: var(--accent-color);
-		color: var(--primary-color);
+@layer components {
+	// Button styles
+	.btn1 {
+		@apply px-4 py-2 rounded w-xs border-none;
 		border: none;
-		border-radius: var(--border-radius);
-		transition: background-color var(--transition);
-
+		cursor: pointer;
+		color: var(--color-white);
+		background-color: var(--color-primary);
 		&:hover {
-			background-color: var(--complementary-accent);
-		}
-
-		&:disabled {
-			background-color: var(--input-border-dark);
+			background-color: --alpha(var(--color-primary) / 90%);
 		}
 	}
 
-	.form-additional {
-		margin-top: 1rem;
-		font-size: 0.9rem;
-		color: var(--neutral-color);
-		text-align: center;
+	.btn2 {
+		@apply px-4 py-2 rounded w-xs;
+		cursor: pointer;
+		color: var(--color-white);
+		background-color: var(--color-secondary);
+		&:hover {
+			background-color: --alpha(var(--color-secondary) / 90%);
+		}
+	}
+
+	.btn-warn {
+		@apply px-4 py-2 rounded w-xs;
+		cursor: pointer;
+		color: var(--color-white);
+		background-color: var(--color-error);
+		&:hover {
+			background-color: --alpha(var(--color-error) / 90%);
+		}
+	}
+
+	.form {
+		@apply w-xl;
+	}
+
+	// Card styles
+	.card {
+		@apply w-2xl p-8 rounded-lg shadow-md;
+		background-color: var(--color-background);
+		color: var(--color-text);
 	}
 }
 
-// Footer
-footer {
-	text-align: center;
-	padding: 1rem;
-	background-color: var(--primary-color);
-	color: var(--neutral-color);
-}
-
-// Media Queries for Responsiveness
-@media (max-width: 768px) {
-	nav {
-		flex-direction: column;
+@layer utilities {
+	// Custom utility classes
+	.bg-primary {
+		background-color: var(--color-primary);
 	}
 
-	button {
-		width: 100%;
+	.bg-secondary {
+		background-color: var(--color-secondary);
 	}
+
+	.text-primary {
+		color: var(--color-primary);
+	}
+
+	.text-secondary {
+		color: var(--color-secondary);
+	}
+
+	.border-primary {
+		border-color: var(--color-primary);
+	}
+
+	.border-error {
+		border-color: var(--color-error);
+	}
+
+	// Add more custom utilities as needed
 }
 
-.form-actions,
-.article-footer {
-	button {
-	}
-}
+// Additional Tailwind setup
+
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/preflight.css' layer(base);
+@import 'tailwindcss/utilities.css' layer(utilities);

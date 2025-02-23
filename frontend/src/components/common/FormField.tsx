@@ -29,11 +29,15 @@ export const FormField: React.FC<FormFieldProps> = ({
 	placeholder,
 	options
 }) => {
+	const inputClasses = `w-full p-3 border rounded-md
+		focus:outline-none focus:ring-2 focus:ring-accent
+		${error ? 'border-error' : 'border-complementary'}`;
+
 	return (
 		<div className="form-group">
-			<label htmlFor={name}>
+			<label htmlFor={name} className="font-bold mb-2">
 				{label}
-				{required && <span className="required">*</span>}
+				{required && <span className="text-error ml-1">*</span>}
 			</label>
 			{type === 'select' ? (
 				<select
@@ -41,7 +45,7 @@ export const FormField: React.FC<FormFieldProps> = ({
 					name={name}
 					value={value}
 					onChange={onChange}
-					className={error ? 'error' : ''}>
+					className={inputClasses}>
 					<option value="">{placeholder || 'Select an option'}</option>
 					{options?.map((option) => (
 						<option key={option.value} value={option.value}>
@@ -56,7 +60,7 @@ export const FormField: React.FC<FormFieldProps> = ({
 					value={value}
 					onChange={onChange}
 					placeholder={placeholder}
-					className={error ? 'error' : ''}
+					className={`${inputClasses} min-h-[150px] resize-y`}
 				/>
 			) : (
 				<input
@@ -66,10 +70,10 @@ export const FormField: React.FC<FormFieldProps> = ({
 					value={value}
 					onChange={onChange}
 					placeholder={placeholder}
-					className={error ? 'error' : ''}
+					className={inputClasses}
 				/>
 			)}
-			{error && <p className="form-error">{error}</p>}
+			{error && <p className="text-red">{error}</p>}
 		</div>
 	);
 };

@@ -1,4 +1,3 @@
-import '../styles/Authors.scss';
 import { useState, useEffect } from 'react';
 import Author, { AuthorType } from '../components/Author';
 import CreateAuthor from '../components/CreateAuthor';

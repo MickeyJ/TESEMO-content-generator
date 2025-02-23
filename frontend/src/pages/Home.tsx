@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import api from '../api';
 import Article, { ArticleType } from '../components/Article';
 import CreateArticle from '../components/CreateArticle';
-import '../styles/Home.scss';
 
 const Home: React.FC = () => {
 	const [articles, setArticles] = useState<ArticleType[]>([]);
@@ -32,7 +31,7 @@ const Home: React.FC = () => {
 	return (
 		<div className="home">
 			<CreateArticle onArticleCreated={fetchArticles} />
-			<div className="articles">
+			<div className="flex flex-col items-center">
 				{articles.map((article) => (
 					<Article key={article.id} article={article} onDelete={handleDelete} />
 				))}

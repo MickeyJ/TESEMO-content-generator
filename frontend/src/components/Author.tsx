@@ -1,5 +1,3 @@
-import '../styles/Author.scss';
-
 export interface AuthorType {
 	id: string;
 	first_name: string;
@@ -19,22 +17,22 @@ function Author({ author, onDelete }: AuthorProps) {
 	const formattedDate = new Date(author.created_at).toLocaleDateString('en-US');
 
 	return (
-		<article className="author">
-			<header className="author-header">
+		<article className="">
+			<header className="">
 				<img
 					src={author.image_url}
 					alt={`${author.first_name} ${author.last_name}`}
-					className="author-image"
+					className=""
 				/>
-				<h3 className="author-name">{`${author.first_name} ${author.last_name}`}</h3>
+				<h3 className="">{`${author.first_name} ${author.last_name}`}</h3>
 			</header>
-			<section className="author-content">
-				<p className="author-prompt">{author.prompt}</p>
-				<p className="author-created-by">Created by: {author.created_by}</p>
+			<section className="">
+				<p className="">{author.prompt}</p>
+				<p className="">Created by: {author.created_by}</p>
 			</section>
-			<footer className="author-footer">
-				<p className="author-date">{formattedDate}</p>
-				<button className="delete-button" onClick={() => onDelete(author.id)}>
+			<footer className="">
+				<p className="">{formattedDate}</p>
+				<button className="" onClick={() => onDelete(author.id)}>
 					Delete
 				</button>
 			</footer>
