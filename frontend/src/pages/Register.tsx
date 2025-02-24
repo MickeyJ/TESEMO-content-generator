@@ -6,7 +6,7 @@ function Register() {
 		<Form
 			route="/api/user/register/"
 			method="register"
-			additionalRender={<Link to="/login">Login</Link>}
+			additionalRender={<Link className='text-primary hover:text-accent transition-colors duration-300' to="/login">Login</Link>}
 		/>
 	);
 }

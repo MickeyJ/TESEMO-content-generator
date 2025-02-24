@@ -7,7 +7,7 @@ function Login() {
 			<Form
 				route="/api/token/"
 				method="login"
-				additionalRender={<Link to="/register">Register</Link>}
+				additionalRender={<Link className='text-primary hover:text-accent transition-colors duration-300' to="/register">Register</Link>}
 			/>
 		</div>
 	);

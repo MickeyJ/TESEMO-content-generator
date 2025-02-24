@@ -78,9 +78,9 @@ const Form: React.FC<FormProps> = ({ route, method, additionalRender }) => {
 	};
 
 	return (
-		<section className="form-container auth-form-section">
+		<section className="flex flex-col items-center">
 			<h2 className="form-title">{name}</h2>
-			<form className="form" onSubmit={handleSubmit}>
+			<form className="form flex flex-col justify-around items-center" onSubmit={handleSubmit}>
 				<FormField
 					label="Username"
 					name="username"
@@ -104,7 +104,7 @@ const Form: React.FC<FormProps> = ({ route, method, additionalRender }) => {
 
 				{errors.submit && <p className="form-error">{errors.submit}</p>}
 
-				<button type="submit" className="form-submit" disabled={loading}>
+				<button type="submit" className="btn1 mt-4" disabled={loading}>
 					{loading ? 'Loading...' : name}
 				</button>
 			</form>

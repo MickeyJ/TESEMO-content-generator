@@ -18,14 +18,6 @@ interface ArticleProps {
 }
 
 const Article: React.FC<ArticleProps> = ({ article }) => {
-	const formattedDate = new Date(article.created_at).toLocaleDateString(
-		'en-US',
-		{
-			year: 'numeric',
-			month: 'long',
-			day: 'numeric'
-		}
-	);
 
 	// Truncate body text to 150 characters
 	const truncatedBody =
