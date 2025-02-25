@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
 # Images
 frontend/public/images/
 
@@ -19,6 +24,7 @@ frontend/public/images/
 backend/db.sqlite3
 
 # Editor directories and files
+__pycache__
 env/
 venv/
 ENV/
